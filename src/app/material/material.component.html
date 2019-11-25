@@ -1,0 +1,158 @@
+<div cdkDropListGroup>
+  <div class="example-container" *ngIf="check1">
+    <div class="Header"  name="toDoList1">
+      <h2>To do {{ todo.length }}</h2>
+      <mat-icon
+        aria-hidden="false"
+        (click)="onDeleteToDoClick()"
+        aria-label="Delete Icon"
+        >delete
+      </mat-icon>
+    </div>
+
+
+    <div
+      cdkDropList
+      #todoList="cdkDropList"
+      [cdkDropListData]="todo"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="example-box" *ngFor="let item of todo" cdkDrag>
+        {{ item.name }}
+        <mat-icon
+          aria-hidden="false"
+          (click)="onToDoDelete(item)"
+          aria-label="Delete Icon"
+          >clear
+        </mat-icon>
+      </div>
+    </div>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input
+          matInput
+          placeholder="New Job"
+          [(ngModel)]="newToDoValue"
+          name="Todo"
+        />
+      </mat-form-field>
+
+     
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="onAddClickHandler()"
+        aria-label="Delete Icon"
+      >
+        + Add
+      </button>
+    </form>
+  </div>
+
+  <div
+    class="example-container"
+    name="fieldName"
+    *ngIf="check2"
+  >
+    <div class="Header">
+      <h2>Doing {{ Doing.length }}</h2>
+      <mat-icon
+        aria-hidden="false"
+        (click)="onDeleteDoingClick()"
+        aria-label="Delete Icon"
+        >delete</mat-icon
+      >
+    </div>
+    <div
+      cdkDropList
+      #DoingList="cdkDropList"
+      [cdkDropListData]="Doing"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="example-box" *ngFor="let item of Doing" cdkDrag>
+        {{ item.name }}
+        <mat-icon
+          aria-hidden="false"
+          (click)="onDoingDelete()"
+          aria-label="Delete Icon"
+          >clear</mat-icon
+        >
+      </div>
+    </div>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input
+          matInput
+          placeholder="New Job"
+          [(ngModel)]="addDoing"
+          name="Doing"
+        />
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="onDoingClickHandler()">
+        + Add
+      </button>
+    </form>
+  </div>
+  <div
+    class="example-container"
+   
+    name="fieldName"
+    *ngIf="check3"
+  >
+    <div class="Header">
+      <h2>Done {{ Done.length }}</h2>
+      <mat-icon
+        aria-hidden="false"
+        (click)="onDeleteDoneClick()"
+        aria-label="Delete Icon"
+        >delete</mat-icon
+      >
+    </div>
+
+    <div
+      cdkDropList
+      #DoneList="cdkDropList"
+      [cdkDropListData]="Done"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      <div class="example-box" *ngFor="let item of Done" cdkDrag>
+        {{ item.name }}
+        <mat-icon
+          aria-hidden="false"
+          (click)="onDoneDelete()"
+          aria-label="Delete Icon"
+          >clear</mat-icon
+        >
+      </div>
+    </div>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input
+          matInput
+          placeholder="New Job"
+          [(ngModel)]="addDone"
+          name="Done"
+        />
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="onDoneClickHandler()">
+        + Add
+      </button>
+    </form>
+  </div>
+  <div class="example-container" id="Add-list">
+    <mat-form-field class="example-full-width">
+      <input
+        matInput
+        placeholder="New List "
+        [(ngModel)]="listName"
+        value="{{ listName }}"
+      />
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="onAddHandler()">
+      + Add
+    </button>
+  </div>
+</div>
